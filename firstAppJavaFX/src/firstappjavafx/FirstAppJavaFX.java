@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -21,6 +23,8 @@ public class FirstAppJavaFX extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        TextField tf = new TextField();
+        
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
@@ -32,7 +36,11 @@ public class FirstAppJavaFX extends Application {
         });
         
         StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        
+        BorderPane bp = new BorderPane();
+        bp.setTop(tf);
+        bp.setCenter(btn);
+        root.getChildren().add(bp);
         
         Scene scene = new Scene(root, 300, 250);
         
